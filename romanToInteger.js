@@ -29,14 +29,14 @@ function integerToRoman(num){
 app.get("/romannumeral", (req, res) => {
   const queryInteger = parseInt(req.query.query);
 
-  if (!Number.isInteger(queryInteger) || queryInteger <= 0) {
+  if (!Number.isInteger(queryInteger) || queryInteger <= 0 || queryInteger >= 3999) {
     return res
       .status(400)
       .json({ error: "Please provide a positive integer." });
   }
 
   const romanNumeral = integerToRoman(queryInteger);
-  res.json({ integer: queryInteger, romanNumeral });
+  res.json({ input: queryInteger, romanNumeral });
 });
 
 app.listen(port, () => {
