@@ -27,16 +27,30 @@ function integerToRoman(num){
 
 
 app.get("/romannumeral", (req, res) => {
-  const queryInteger = parseInt(req.query.query);
+  try {
+    const queryInteger = parseInt(req.query.query);
 
-  if (!Number.isInteger(queryInteger) || queryInteger <= 0 || queryInteger >= 3999) {
-    return res
-      .status(400)
-      .json({ error: "Please provide a positive integer." });
+    if (
+      !Number.isInteger(queryInteger) ||
+      queryInteger <= 0 ||
+      queryInteger >= 3999
+    ) {
+      throw new Error(
+        "Invalid input, Please enter positive integer from range 1 to 3999."
+      );
+    }
+
+    const romanNumeral = integerToRoman(queryInteger);
+    res.json({ input: queryInteger, romanNumeral });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
+});
 
-  const romanNumeral = integerToRoman(queryInteger);
-  res.json({ input: queryInteger, romanNumeral });
+// Error handling for uncaught errors
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal Server Error'});
 });
 
 app.listen(port, () => {

@@ -10,7 +10,7 @@ COPY . .
 
 ENV NODE_ENV production
 
-CMD ["node", "app.js"]
+CMD ["node", "romanToInteger.js"]
 
 
 
