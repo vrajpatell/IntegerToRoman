@@ -1,0 +1,16 @@
+{
+  "name": "integer-to-roman-numeral",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "express": "^4.18.2",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  }
+}
