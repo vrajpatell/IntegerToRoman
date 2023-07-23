@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { integerToRoman } = require("./romanToInteger");
-const console = require('./util/logger');
+const { integerToRoman } = require("../Service/romanToInteger");
+const console = require('../util/logger');
 
 const now = new Date();
 const timestamp = now.toISOString();
