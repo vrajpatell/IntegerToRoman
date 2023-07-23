@@ -10,7 +10,7 @@ const timestamp = now.toISOString();
 router.get("/", (req, res) => {
   let { query } = req.query;
   if (query === undefined || query === null) {
-    console.log(`Router: Status:${res.statusCode} :: ${timestamp} `);
+    console.log(`Router: Status:${res.statusCode} || Timestamp ${timestamp} `);
     return res.status(400).json({ error: "Input is required" });
   }
 
@@ -18,12 +18,12 @@ router.get("/", (req, res) => {
   try {
     num = parseInt(query);
   } catch {
-    console.log(`Router: Status:${res.statusCode} :: ${timestamp} `);
+    console.log(`Router: Status:${res.statusCode} || Timestamp ${timestamp} `);
     return res.status(400).json({ error: "Invalid input, must be a number" });
   }
 
   if (!Number.isInteger(num)) {
-    console.log(`Router: Status:${res.statusCode} :: ${timestamp} `);
+    console.log(`Router: Status:${res.statusCode} || Timestamp ${timestamp} `);
     return res.status(400).json({ error: "Input must be an integer" });
   }
 
@@ -32,10 +32,12 @@ router.get("/", (req, res) => {
   }
 
   try {
+    const start = Date.now();
     num = parseInt(query);
     const romanNumeral = integerToRoman(num);
     res.status(200).json({ input: num, output: romanNumeral });
-    console.log(`Router: Status:${res.statusCode} for integer input:${num} Getting Output:${romanNumeral}`);
+    const end = Date.now();
+    console.log(`Router: Status:${res.statusCode} || integer input:${num} Getting Output:${romanNumeral} || Timestamp ${timestamp} || Execution time: ${end - start} ms`);
   } catch (err) {
     res.status(500).json({ error: "Error converting to roman numeral" });
     console.log(`Router: Status:${res.statusCode} for integer input:${num}`);
