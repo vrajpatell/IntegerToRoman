@@ -27,7 +27,7 @@ Inside the `src` folder there are four sub folders:
 3. `test` - This contains test file to for various scenarios.
 4. `util` - Contains utility function for logging.
 
-apart from these folders there is `app.js` which creates instance of express application. `server.js` file is responsible to start the server and assigns the port to our application. There is also README.md file which consists of all the requirments and steps to run the application, with other information.
+Apart from these folders there is `app.js` which creates instance of express application. `server.js` file is responsible to start the server and assigns the port to our application. There is also README.md file which consists of all the requirments and steps to run the application, with other information.
 
 ```bash
 src
@@ -112,8 +112,7 @@ docker run -p 8080:8080 roman-numeral-converter
 
 ## Testing methodologies
 This is integration testing which includes multiple test cases, including edge cases and out of range cases.
-the test file runs and gives a results for each test case whether they pass or fail. It uses Mocha testing framework.
-To perform test cases, please run the following command. 
+the test file runs and gives a results for each test case whether they pass or fail. It uses Mocha testing framework. <br /> To perform test cases, please run the following command. 
 ```bash
 npm test
 ```
