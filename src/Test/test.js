@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { integerToRoman, OutOfRangeError } = require("../Service/romanToInteger");
+const { integerToRoman, OutOfRangeError } = require("../Service/integerToRoman");
 
 describe("integerToRoman", () => {
   it("converts 1 to I", () => {

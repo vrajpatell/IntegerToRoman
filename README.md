@@ -21,13 +21,21 @@ Response:
 ```
 
 ## Package Layout
+Inside the `src` folder there are four sub folders:
+1. `Routes` - It contains the accepted URLs and redirects to main service depending on input query.
+2. `Service` - It contain two services. One is for sending alerts on email and another is the main service which converts Integer to Roman.
+3. `test` - This contains test file to for various scenarios.
+4. `util` - Contains utility function for logging.
+
+apart from these folders there is `app.js` which creates instance of express application. `server.js` file is responsible to start the server and assigns the port to our application. There is also README.md file which consists of all the requirments and steps to run the application, with other information.
+
 ```bash
 src
  ┣ Routes
  ┃ ┗ romanNumeralRouter.js
  ┣ Service
  ┃ ┣ emailService.js
- ┃ ┗ romanToInteger.js
+ ┃ ┗ integerToRoman.js
  ┣ Test
  ┃ ┗ test.js
  ┣ util
@@ -102,12 +110,19 @@ docker run -p 8080:8080 roman-numeral-converter
 ```
 
 
-## Testing
+## Testing methodologies
+This is integration testing which includes multiple test cases, including edge cases and out of range cases.
+the test file runs and gives a results for each test case whether they pass or fail. It uses Mocha testing framework.
 To perform test cases, please run the following command. 
 ```bash
 npm test
 ```
 
+## References
+* [Wikipedia](https://en.wikipedia.org/wiki/Roman_numerals)
+* [expressjs](https://expressjs.com/en/starter/installing.html)
+* [nodemailer](https://nodemailer.com/about/)
+* [mocha-chai-supertest](https://dev-tester.com/dead-simple-api-tests-with-supertest-mocha-and-chai/)
 
 
 ## License

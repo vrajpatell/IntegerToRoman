@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // Importing function for converting integers to Roman numerals from the service module
-const { integerToRoman } = require("../Service/romanToInteger");
+const { integerToRoman } = require("../Service/integerToRoman");
 
 // Importing custom logger for logging service messages.
 const console = require("../util/logger");
@@ -14,6 +14,9 @@ const emailService = require("../Service/emailService");
 // Get the current timestamp for logging purposes
 const now = new Date();
 const timestamp = now.toISOString();
+
+// capture the execution time
+const start = Date.now();
 
 // GET Requests routes
 router.get("/", (req, res) => {
@@ -48,8 +51,6 @@ router.get("/", (req, res) => {
 
   try {
 
-    // Measure the execution time
-    const start = Date.now();
     num = parseInt(query);
     const romanNumeral = integerToRoman(num);
 

@@ -5,4 +5,4 @@ node_modules
 .vscode
 
 #Igonre log files
-/util/logs
+/util/logs/routerLogs.log
