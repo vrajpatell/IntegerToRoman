@@ -3,6 +3,3 @@ node_modules
 
 # Ignore .vscode folder
 .vscode
-
-#Igonre log files
-/util/logs/routerLogs.log
